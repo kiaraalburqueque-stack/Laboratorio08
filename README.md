@@ -15,6 +15,14 @@ En PowerShell, con Java instalado (el wrapper descarga Maven automáticamente):
 
 También puedes ejecutar `Laboratorio08Application` desde IntelliJ. La API queda en `http://localhost:8080`. H2 guarda los datos de la aplicación en `data/`; las pruebas usan otra base H2 en memoria y revierten cada transacción.
 
+En **Git Bash** utiliza `./mvnw spring-boot:run` y `./mvnw test`.
+
+## Interfaz visual
+
+Abre **http://localhost:8080/** para ver el panel de inventario. Permite cambiar entre Productos y Categorías, buscar por nombre, crear y editar mediante formularios y eliminar con confirmación. El resumen muestra cantidades y el valor del inventario (precio × stock). Los datos se guardan mediante los mismos endpoints REST del laboratorio.
+
+La interfaz es responsive y usa HTML, CSS y JavaScript sin instalar Node ni dependencias de frontend. Incluye estados vacíos y mensajes de validación y errores de conexión. Las fuentes de Google son opcionales y tienen alternativas locales. Si acabas de actualizar el código, reinicia Spring Boot y recarga el navegador para ver los cambios.
+
 ## Endpoints
 
 | Método | Productos | Categorías | Resultado |

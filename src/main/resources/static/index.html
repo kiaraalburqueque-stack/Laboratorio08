@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173e34">
+  <title>Inventario · Laboratorio 08</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="/" aria-label="Inventario, inicio"><span class="brand-icon">i.</span> inventario<span class="brand-dot">.</span></a>
+    <div class="workspace">ESPACIO DE TRABAJO</div>
+    <nav aria-label="Módulos">
+      <button class="nav-button active" data-module="productos" aria-pressed="true"><span aria-hidden="true">▦</span> Productos <span class="nav-arrow" aria-hidden="true">↗</span></button>
+      <button class="nav-button" data-module="categorias" aria-pressed="false"><span aria-hidden="true">▤</span> Categorías <span class="nav-arrow" aria-hidden="true">↗</span></button>
+    </nav>
+    <div class="sidebar-note"><span class="note-symbol" aria-hidden="true">✳</span><strong>Todo en su lugar.</strong><p>Un espacio simple para organizar tus productos y categorías.</p></div>
+    <div class="profile"><span class="avatar">K</span><div><strong>Kiara</strong><small>Laboratorio 08 · Tecsup</small></div></div>
+  </aside>
+  <main>
+    <header class="topbar"><span>Mi espacio <span class="breadcrumb">/ <span id="breadcrumb">Productos</span></span></span><span class="course">Desarrollo de aplicaciones web</span></header>
+    <section class="content">
+      <div class="page-heading"><div><p class="eyebrow">TU INVENTARIO, AL DÍA</p><h1 id="title">Productos</h1><p class="subtitle" id="subtitle">Cada producto en orden. Cada detalle bajo control.</p></div><button class="button primary" id="new-button"><span aria-hidden="true">+</span> Nuevo producto</button></div>
+      <div class="stats" aria-label="Resumen del inventario">
+        <article class="stat"><span class="stat-label">Productos registrados <span aria-hidden="true">▦</span></span><strong id="product-count">—</strong><small>En tu inventario</small></article>
+        <article class="stat"><span class="stat-label">Categorías <span aria-hidden="true">▤</span></span><strong id="category-count">—</strong><small>Para organizar mejor</small></article>
+        <article class="stat accent"><span class="stat-label">Valor del inventario <span aria-hidden="true">↗</span></span><strong id="inventory-value">—</strong><small>Precio × unidades disponibles</small></article>
+      </div>
+      <div id="message" class="message" role="status" hidden></div>
+      <section class="panel" aria-labelledby="list-title">
+        <div class="panel-header"><div><h2 id="list-title">Todos los productos</h2><p id="list-description">Consulta y administra tu inventario.</p></div><label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Buscar por nombre…" aria-label="Buscar por nombre"></label></div>
+        <div class="table-container"><table><thead id="table-head"></thead><tbody id="table-body"></tbody></table></div>
+        <div id="empty" class="empty" hidden><span class="empty-icon" aria-hidden="true">▦</span><h3 id="empty-title">Tu inventario empieza aquí</h3><p id="empty-description">Agrega tu primer producto para empezar a organizarlo todo.</p><button class="button secondary" id="empty-create">Agregar producto</button></div>
+        <footer class="panel-footer"><span id="result-count">Cargando…</span><button class="text-button" id="refresh">↻ Actualizar</button></footer>
+      </section>
+      <footer class="page-footer"><span>Hecho para mantener el orden.</span><span>Laboratorio 08 <span aria-hidden="true">·</span> Kiara</span></footer>
+    </section>
+  </main>
+  <dialog id="editor" aria-labelledby="editor-title">
+    <form id="editor-form">
+      <div class="dialog-heading"><div><p class="eyebrow">INVENTARIO</p><h2 id="editor-title">Nuevo producto</h2></div><button type="button" class="close" id="close-editor" aria-label="Cerrar">×</button></div>
+      <p class="dialog-description">Completa los datos. Puedes editarlos cuando quieras.</p>
+      <label class="field">Nombre <input name="nombre" id="nombre" required maxlength="100" placeholder="Ej. Monitor LED"></label>
+      <div id="product-fields" class="field-row"><label class="field">Precio (S/) <input name="precio" id="precio" type="number" min="0.01" step="0.01" required placeholder="0.00"></label><label class="field">Stock <input name="stock" id="stock" type="number" min="0" step="1" required placeholder="0"></label></div>
+      <label class="field" id="description-field" hidden>Descripción <textarea name="descripcion" id="descripcion" maxlength="255" rows="3" placeholder="Describe esta categoría"></textarea></label>
+      <p id="form-error" class="form-error" role="alert" hidden></p>
+      <div class="dialog-actions"><button type="button" class="button secondary" id="cancel-editor">Cancelar</button><button type="submit" class="button primary" id="save-button">Guardar producto</button></div>
+    </form>
+  </dialog>
+  <dialog id="delete-dialog" aria-labelledby="delete-title"><div class="delete-content"><span class="delete-icon" aria-hidden="true">!</span><h2 id="delete-title">¿Eliminar este registro?</h2><p id="delete-description"></p><p class="muted">Esta acción no se puede deshacer.</p><p id="delete-error" class="form-error" role="alert" hidden></p><div class="dialog-actions"><button class="button secondary" id="cancel-delete">Cancelar</button><button class="button danger" id="confirm-delete">Sí, eliminar</button></div></div></dialog>
+</body>
+</html>
