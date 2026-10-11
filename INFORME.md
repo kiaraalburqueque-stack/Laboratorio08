@@ -1,6 +1,6 @@
 # Laboratorio 08 — Implementación de tests
 
-Estudiante: ____________________
+Estudiante: Kiara Paola Alburqueque Arzapalo
 
 Sección: ____________________
 
